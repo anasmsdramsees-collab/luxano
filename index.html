@@ -1,0 +1,1002 @@
+<title>مصاعد لوكسانو | الموقع الرسمي</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --navy:#16265C;
+    --navy-deep:#0B1430;
+    --blue:#4E86C6;
+    --blue-soft:#A8C6E4;
+    --tint:#EEF3F9;
+    --bg:#FCFDFE;
+    --surface:#FFFFFF;
+    --ink:#1B2436;
+    --muted:#5A6478;
+    --line:#DDE5EF;
+    --hero-ink:#FFFFFF;
+    --shadow:0 10px 30px rgba(22,38,92,.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --navy:#1B2C66;
+      --navy-deep:#080D1E;
+      --blue:#6FA3DC;
+      --blue-soft:#3D5A85;
+      --tint:#121A2E;
+      --bg:#0C1220;
+      --surface:#141D33;
+      --ink:#E8EEF7;
+      --muted:#9AA8C0;
+      --line:#25314D;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --navy:#1B2C66; --navy-deep:#080D1E; --blue:#6FA3DC; --blue-soft:#3D5A85;
+    --tint:#121A2E; --bg:#0C1220; --surface:#141D33; --ink:#E8EEF7;
+    --muted:#9AA8C0; --line:#25314D; --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"]{
+    --navy:#16265C; --navy-deep:#0B1430; --blue:#4E86C6; --blue-soft:#A8C6E4;
+    --tint:#EEF3F9; --bg:#FCFDFE; --surface:#FFFFFF; --ink:#1B2436;
+    --muted:#5A6478; --line:#DDE5EF; --shadow:0 10px 30px rgba(22,38,92,.10);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,"SF Pro Text","Segoe UI","Helvetica Neue","Geeza Pro","Noto Kufi Arabic",Tahoma,sans-serif;
+    line-height:1.7;
+  }
+  .rtl{direction:rtl; text-align:right}
+  .wrap{max-width:1180px; margin-inline:auto; padding-inline:24px}
+  h1,h2,h3{line-height:1.35; text-wrap:balance; margin:0}
+  p{margin:0}
+  a{text-decoration:none; color:inherit}
+  img{max-width:100%}
+  :focus-visible{outline:3px solid var(--blue); outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important; transition:none!important}
+  }
+
+  /* ---------- Logo ---------- */
+  .logo{display:flex; flex-direction:column; align-items:center; gap:2px; line-height:1}
+  .logo .en{
+    font-weight:800; letter-spacing:.14em; font-size:22px; color:var(--navy);
+    display:flex; align-items:center; direction:ltr;
+    font-family:"Avenir Next","Segoe UI",-apple-system,sans-serif;
+  }
+  .logo .en svg{margin:0 1px 2px}
+  .logo .sub{
+    font-weight:700; letter-spacing:.42em; font-size:9.5px; color:var(--navy);
+    direction:ltr; font-family:"Avenir Next","Segoe UI",sans-serif;
+  }
+  .logo .ar{font-size:12px; color:var(--blue); font-weight:600; letter-spacing:.2em}
+  .logo.on-dark .en,.logo.on-dark .sub{color:#fff}
+  .logo.on-dark .ar{color:var(--blue-soft)}
+
+  /* ---------- Top bar ---------- */
+  .topbar{background:var(--navy-deep); color:#C9D6EA; font-size:13px}
+  .topbar .wrap{display:flex; justify-content:space-between; align-items:center; min-height:38px; gap:16px; flex-wrap:wrap}
+  .topbar .group{display:flex; gap:20px; align-items:center; flex-wrap:wrap}
+  .topbar .num{direction:ltr; font-variant-numeric:tabular-nums}
+  .lang{border:1px solid rgba(255,255,255,.25); border-radius:3px; padding:2px 10px; font-size:12px; color:#fff; cursor:pointer; background:none}
+
+  /* ---------- Nav ---------- */
+  .nav{background:var(--surface); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:50}
+  .nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:78px}
+  .nav ul{display:flex; gap:28px; list-style:none; margin:0; padding:0; font-size:15px; font-weight:600}
+  .nav ul a{color:var(--ink); padding-block:8px; border-bottom:2px solid transparent}
+  .nav ul a:hover,.nav ul a.active{color:var(--blue); border-bottom-color:var(--blue)}
+  .btn{
+    display:inline-block; background:var(--blue); color:#fff; font-weight:700; font-size:15px;
+    padding:11px 26px; border-radius:3px; border:none; cursor:pointer; transition:background .2s;
+  }
+  .btn:hover{background:var(--navy)}
+  .btn.ghost{
+    background:rgba(255,255,255,.1); border:1.5px solid rgba(255,255,255,.5); color:#fff;
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.2);
+  }
+  .btn.ghost:hover{background:rgba(255,255,255,.2)}
+  @media(max-width:900px){ .nav ul{display:none} }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; color:var(--hero-ink); overflow:hidden;
+    background:#16265C url('images/hero.jpg?v=2') no-repeat left center / cover;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(to left, rgba(11,20,48,.45) 0%, rgba(11,20,48,.1) 55%, transparent 100%);
+  }
+  .hero .wrap{position:relative; z-index:2; padding-block:110px 130px; max-width:1180px}
+  .eyebrow{
+    display:inline-block; font-size:13px; font-weight:700; letter-spacing:.08em;
+    color:var(--blue-soft); border:1px solid rgba(255,255,255,.28); border-radius:99px;
+    padding:7px 18px; margin-bottom:22px;
+    background:rgba(255,255,255,.08); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 4px 18px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.15);
+  }
+  .hero h1{font-size:clamp(34px,5.2vw,58px); font-weight:800; max-width:14ch}
+  .hero p.lead{font-size:clamp(16px,1.6vw,20px); color:#D4E0F0; max-width:52ch; margin-top:18px}
+  .hero .ctas{display:flex; gap:14px; margin-top:36px; flex-wrap:wrap}
+  .hero .skyline{position:absolute; inset-inline-start:0; bottom:0; width:100%; z-index:1; opacity:.9}
+  .hero .chev{position:absolute; inset-inline-end:-60px; top:-40px; z-index:1; opacity:.14; width:520px}
+
+  /* ---------- Stats ---------- */
+  .stats{background:linear-gradient(120deg,#0B1430,#1B2C66); color:#fff; position:relative; z-index:3; padding-block:10px}
+  .stats .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; text-align:center}
+  .stat{
+    padding:30px 12px; border-radius:14px;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14);
+    backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.12), 0 8px 24px rgba(0,0,0,.15);
+  }
+  .stat .n{font-size:clamp(28px,3vw,42px); font-weight:800; color:var(--blue-soft); font-variant-numeric:tabular-nums; direction:ltr}
+  .stat .l{font-size:14px; color:#C9D6EA; margin-top:4px}
+  @media(max-width:760px){ .stats .wrap{grid-template-columns:1fr 1fr} }
+
+  /* ---------- Sections ---------- */
+  section{padding-block:88px}
+  .sec-head{max-width:760px; margin-bottom:48px}
+  .kicker{color:var(--blue); font-weight:700; font-size:14px; letter-spacing:.06em; margin-bottom:10px}
+  .sec-head h2{font-size:clamp(26px,3.4vw,40px); font-weight:800; color:var(--navy)}
+  :root[data-theme="dark"] .sec-head h2{color:var(--ink)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .sec-head h2{color:var(--ink)} }
+  .sec-head p{color:var(--muted); font-size:17px; margin-top:14px}
+
+  /* intro statement */
+  .intro{background:var(--tint)}
+  .intro .grid{display:grid; grid-template-columns:1.2fr .8fr; gap:56px; align-items:center}
+  .intro h2{font-size:clamp(24px,3vw,36px); font-weight:800; color:var(--navy)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .intro h2{color:var(--ink)} }
+  :root[data-theme="dark"] .intro h2{color:var(--ink)}
+  .intro p{color:var(--muted); font-size:17px; margin-top:16px}
+  .link-arrow{display:inline-flex; align-items:center; gap:8px; color:var(--blue); font-weight:700; margin-top:24px}
+  .link-arrow:hover{color:var(--navy)}
+  .cert-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:28px}
+  .cert{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:10px 18px; font-size:13px; font-weight:700; color:var(--muted)}
+  @media(max-width:860px){ .intro .grid{grid-template-columns:1fr} }
+
+  /* cards */
+  .cards{display:grid; grid-template-columns:repeat(4,1fr); gap:22px}
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:8px;
+    overflow:hidden; display:flex; flex-direction:column; transition:transform .25s, box-shadow .25s;
+  }
+  .card:hover{transform:translateY(-6px); box-shadow:var(--shadow)}
+  .card .visual{height:150px; display:flex; align-items:center; justify-content:center}
+  .card .visual.photo{height:180px}
+  .card .visual.photo img{width:100%; height:100%; object-fit:cover; display:block}
+  .cards.five{grid-template-columns:repeat(5,1fr)}
+  @media(max-width:1100px){ .cards.five{grid-template-columns:repeat(3,1fr)} }
+  @media(max-width:760px){ .cards.five{grid-template-columns:1fr 1fr} }
+  @media(max-width:480px){ .cards.five{grid-template-columns:1fr} }
+  .card .body{padding:22px 22px 26px; display:flex; flex-direction:column; gap:10px; flex:1}
+  .card h3{font-size:19px; font-weight:800; color:var(--navy)}
+  :root[data-theme="dark"] .card h3{color:var(--ink)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .card h3{color:var(--ink)} }
+  .card p{color:var(--muted); font-size:14.5px; flex:1}
+  @media(max-width:1000px){ .cards{grid-template-columns:1fr 1fr} }
+  @media(max-width:560px){ .cards{grid-template-columns:1fr} }
+
+  /* why us */
+  .why .grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center}
+  .tick-list{list-style:none; margin:26px 0 0; padding:0; display:grid; gap:16px}
+  .tick-list li{display:flex; gap:14px; align-items:flex-start; font-size:16px}
+  .tick-list b{color:var(--navy); display:block}
+  :root[data-theme="dark"] .tick-list b{color:var(--ink)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tick-list b{color:var(--ink)} }
+  .tick-list span{color:var(--muted); font-size:14.5px}
+  .tick{flex:none; width:26px; height:26px; border-radius:50%; background:var(--blue); color:#fff; display:flex; align-items:center; justify-content:center; font-size:14px; margin-top:3px}
+  .why-visual{
+    border-radius:10px; min-height:420px; box-shadow:var(--shadow);
+    background:linear-gradient(160deg,#16265C,#27447F);
+    display:flex; align-items:flex-end; overflow:hidden; position:relative;
+  }
+  .why-visual .quote{position:relative; z-index:2; color:#fff; padding:28px; font-size:15px; background:linear-gradient(to top,rgba(11,20,48,.85),transparent)}
+  .why-visual .quote b{color:var(--blue-soft)}
+  @media(max-width:860px){ .why .grid{grid-template-columns:1fr} }
+
+  /* projects */
+  .projects{background:var(--tint)}
+  .proj-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px}
+  .proj{border-radius:8px; overflow:hidden; position:relative; min-height:300px; display:flex; align-items:flex-end; color:#fff; box-shadow:var(--shadow)}
+  .proj .tag{position:absolute; top:14px; inset-inline-start:14px; background:rgba(255,255,255,.92); color:var(--navy); font-size:12px; font-weight:700; padding:4px 12px; border-radius:99px}
+  :root[data-theme="dark"] .proj .tag{background:rgba(20,29,51,.92); color:var(--blue-soft)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .proj .tag{background:rgba(20,29,51,.92); color:var(--blue-soft)} }
+  .proj .info{padding:20px; width:100%; background:linear-gradient(to top,rgba(11,20,48,.92),transparent)}
+  .proj h3{font-size:17px; font-weight:800}
+  .proj p{font-size:13px; color:#C9D6EA; margin-top:2px}
+  @media(max-width:1000px){ .proj-grid{grid-template-columns:1fr 1fr} }
+  @media(max-width:560px){ .proj-grid{grid-template-columns:1fr} }
+
+  /* CTA banner */
+  .cta-banner{background:linear-gradient(120deg,#0B1430,#16265C); color:#fff}
+  .cta-banner .wrap{display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap; padding-block:64px}
+  .cta-banner h2{font-size:clamp(24px,3vw,36px); font-weight:800}
+  .cta-banner p{color:#C9D6EA; margin-top:8px; font-size:16px}
+  .cta-banner .num{direction:ltr; font-variant-numeric:tabular-nums; font-weight:800; color:var(--blue-soft)}
+
+  /* extra card grids */
+  .cards.six{grid-template-columns:repeat(3,1fr)}
+  .cards.seven{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:1000px){ .cards.six{grid-template-columns:1fr 1fr} .cards.seven{grid-template-columns:1fr 1fr} }
+  @media(max-width:560px){ .cards.six,.cards.seven{grid-template-columns:1fr} }
+
+  /* vision & mission */
+  .vm-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+  .vm-card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:34px; border-top:4px solid var(--blue)}
+  .vm-card h3{color:var(--navy); font-size:21px; font-weight:800; margin-bottom:12px}
+  :root[data-theme="dark"] .vm-card h3{color:var(--ink)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .vm-card h3{color:var(--ink)} }
+  .vm-card p{color:var(--muted); font-size:15.5px}
+  .values-row{display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:22px}
+  .value-item{background:var(--tint); border-radius:8px; padding:20px 14px; text-align:center}
+  .value-item .vi{width:44px; height:44px; margin:0 auto 10px; border-radius:50%; background:var(--blue); color:#fff; display:flex; align-items:center; justify-content:center; font-size:19px}
+  .value-item b{display:block; color:var(--navy); font-size:15px}
+  :root[data-theme="dark"] .value-item b{color:var(--ink)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .value-item b{color:var(--ink)} }
+  .value-item span{font-size:12.5px; color:var(--muted)}
+  @media(max-width:900px){ .vm-grid{grid-template-columns:1fr} .values-row{grid-template-columns:repeat(2,1fr)} }
+
+  /* clients */
+  .clients-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:28px; align-items:center}
+  .client-logo{height:100px; display:flex; align-items:center; justify-content:center}
+  .client-logo img{max-height:100%; max-width:100%; object-fit:contain}
+  @media(max-width:1000px){ .clients-grid{grid-template-columns:repeat(4,1fr)} }
+  @media(max-width:560px){ .clients-grid{grid-template-columns:repeat(2,1fr)} }
+
+  /* Sano assistant */
+  .sano-fab{position:fixed; bottom:0; inset-inline-start:18px; z-index:90; background:none; border:none; cursor:pointer; padding:0; display:flex; flex-direction:column; align-items:center; gap:8px}
+  .sano-fab img{height:158px; width:auto; display:block; filter:drop-shadow(0 8px 18px rgba(11,20,48,.35)); transition:transform .25s}
+  .sano-fab:hover img{transform:translateY(-6px)}
+  .sano-label{background:var(--navy); color:#fff; font-size:13px; font-weight:700; padding:7px 16px; border-radius:99px; box-shadow:0 6px 16px rgba(11,20,48,.3); position:relative}
+  .sano-label::after{content:""; position:absolute; bottom:-6px; inset-inline-start:50%; transform:translateX(50%); border:6px solid transparent; border-top-color:var(--navy); border-bottom:0}
+  .sano-panel{position:fixed; bottom:205px; inset-inline-start:18px; z-index:95; width:min(360px, calc(100vw - 44px)); background:var(--surface); border-radius:14px; box-shadow:0 24px 60px rgba(0,0,0,.35); display:none; flex-direction:column; overflow:hidden; border:1px solid var(--line)}
+  .sano-panel.open{display:flex}
+  .sano-head{background:linear-gradient(120deg,#0B1430,#16265C); color:#fff; padding:16px 18px; display:flex; align-items:center; gap:12px}
+  .sano-head img{background:rgba(255,255,255,.15); backdrop-filter:blur(8px)}
+  .sano-head img{width:46px; height:46px; border-radius:50%; background:#fff; object-fit:cover; object-position:top; border:2px solid var(--blue)}
+  .sano-head b{font-size:16px; display:block}
+  .sano-head span{font-size:12px; color:#A8C6E4}
+  .sano-close{margin-inline-start:auto; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22); color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:13px; backdrop-filter:blur(8px)}
+  .sano-body{padding:16px; display:flex; flex-direction:column; gap:10px; max-height:340px; overflow-y:auto; background:var(--bg)}
+  .sano-msg{max-width:85%; padding:10px 14px; border-radius:12px; font-size:14px; line-height:1.6}
+  .sano-msg.bot{background:var(--tint); color:var(--ink); border-start-start-radius:3px; align-self:flex-start}
+  .sano-msg.user{background:var(--blue); color:#fff; border-start-end-radius:3px; align-self:flex-end}
+  .sano-quick{padding:12px 16px 16px; display:flex; flex-wrap:wrap; gap:8px; border-top:1px solid var(--line); background:var(--surface)}
+  .sano-q{border:1.5px solid var(--blue); color:var(--blue); background:none; border-radius:99px; padding:7px 14px; font-size:13px; font-weight:700; cursor:pointer; font-family:inherit}
+  .sano-q:hover{background:var(--blue); color:#fff}
+  @media(max-width:560px){ .sano-fab img{height:90px} .sano-panel{bottom:130px} .sano-label{font-size:11px; padding:5px 12px} }
+
+  /* gallery */
+  .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .g-item{position:relative; border:none; padding:0; background:none; cursor:pointer; border-radius:10px; overflow:hidden; box-shadow:var(--shadow); height:280px; transition:transform .25s}
+  .g-item:hover{transform:scale(1.02)}
+  .g-item img{width:100%; height:100%; object-fit:cover; display:block}
+  .g-cap{
+    position:absolute; inset-inline:0; bottom:0; padding:14px 16px; color:#fff; font-size:13px; text-align:start;
+    background:rgba(11,20,48,.35); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-top:1px solid rgba(255,255,255,.18);
+    transform:translateY(100%); transition:transform .25s;
+  }
+  .g-item:hover .g-cap, .g-item:focus-visible .g-cap{transform:translateY(0)}
+  .finish-chips{display:flex; flex-wrap:wrap; gap:12px; margin-top:28px}
+  @media(max-width:860px){ .gallery{grid-template-columns:1fr 1fr} .g-item{height:200px} }
+  @media(max-width:520px){ .gallery{grid-template-columns:1fr} .g-item{height:240px} }
+
+  /* quote modal */
+  .modal{position:fixed; inset:0; z-index:110; background:rgba(8,13,30,.7); display:none; align-items:center; justify-content:center; padding:20px}
+  .modal.open{display:flex}
+  .modal-card{background:var(--surface); border-radius:12px; width:min(560px,100%); max-height:92vh; overflow-y:auto; box-shadow:0 24px 60px rgba(0,0,0,.35); position:relative}
+  .modal-head{background:linear-gradient(120deg,#0B1430,#16265C); color:#fff; padding:26px 28px; border-radius:12px 12px 0 0; position:relative; overflow:hidden}
+  .modal-head h3{font-size:22px; font-weight:800; margin:0}
+  .modal-head p{color:#C9D6EA; font-size:14px; margin-top:6px}
+  .modal-close{
+    position:absolute; top:18px; inset-inline-end:18px; z-index:1;
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); color:#fff;
+    width:36px; height:36px; border-radius:50%; font-size:16px; cursor:pointer;
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  }
+  .modal-close:hover{background:rgba(255,255,255,.3)}
+  .modal form{padding:26px 28px; display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  .field{display:flex; flex-direction:column; gap:6px}
+  .field.full{grid-column:1 / -1}
+  .field label{font-size:13.5px; font-weight:700; color:var(--ink)}
+  .field label span{color:#C0392B}
+  .field input,.field select,.field textarea{
+    font-family:inherit; font-size:15px; color:var(--ink); background:var(--bg);
+    border:1.5px solid var(--line); border-radius:6px; padding:11px 14px; width:100%;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none; border-color:var(--blue)}
+  .field textarea{resize:vertical; min-height:84px}
+  .modal .btn{grid-column:1 / -1; font-size:16px; padding:13px}
+  .modal-note{grid-column:1 / -1; font-size:12.5px; color:var(--muted); text-align:center}
+  .modal-success{display:none; padding:56px 28px; text-align:center; flex-direction:column; align-items:center; gap:14px}
+  .modal-success .ok{width:64px; height:64px; border-radius:50%; background:var(--blue); color:#fff; font-size:30px; display:flex; align-items:center; justify-content:center}
+  .modal-success h3{color:var(--navy); font-size:21px; font-weight:800}
+  :root[data-theme="dark"] .modal-success h3{color:var(--ink)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .modal-success h3{color:var(--ink)} }
+  .modal-success p{color:var(--muted); font-size:15px}
+  .modal.done form{display:none}
+  .modal.done .modal-success{display:flex}
+  @media(max-width:560px){ .modal form{grid-template-columns:1fr} }
+
+  /* lightbox */
+  .lightbox{position:fixed; inset:0; z-index:100; background:rgba(8,13,30,.94); display:none; align-items:center; justify-content:center; flex-direction:column; gap:14px; padding:24px}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:min(92vw,900px); max-height:74vh; border-radius:8px; object-fit:contain}
+  .lightbox .cap{color:#C9D6EA; font-size:15px; text-align:center}
+  .lb-btn{position:absolute; background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.3); width:46px; height:46px; border-radius:50%; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center}
+  .lb-btn:hover{background:var(--blue)}
+  .lb-close{top:20px; inset-inline-start:20px}
+  .lb-prev{inset-inline-end:16px; top:50%; transform:translateY(-50%)}
+  .lb-next{inset-inline-start:16px; top:50%; transform:translateY(-50%)}
+
+  /* contact + map */
+  .contact-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:28px; align-items:stretch}
+  .contact-card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:32px; display:flex; flex-direction:column; gap:18px}
+  .contact-card ul{list-style:none; margin:0; padding:0; display:grid; gap:16px}
+  .contact-card li{display:flex; gap:12px; align-items:flex-start; color:var(--muted); font-size:15.5px}
+  .contact-card li b{color:var(--ink); display:block; font-size:14px}
+  .contact-card .num{direction:ltr; font-variant-numeric:tabular-nums}
+  .ico{flex:none; margin-top:2px}
+  .ico-inline{vertical-align:-3px; margin-inline-start:2px}
+  .map-frame{border:0; width:100%; height:100%; min-height:400px; border-radius:10px; box-shadow:var(--shadow)}
+  @media(max-width:860px){ .contact-grid{grid-template-columns:1fr} .map-frame{min-height:320px} }
+
+  /* footer */
+  footer{background:var(--navy-deep); color:#B9C6DC; font-size:14.5px}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1.2fr; gap:40px; padding-block:64px 48px}
+  footer h4{color:#fff; font-size:15px; font-weight:800; margin:0 0 18px}
+  footer ul{list-style:none; margin:0; padding:0; display:grid; gap:11px}
+  footer a:hover{color:#fff}
+  .foot-contact li{display:flex; gap:10px; align-items:flex-start}
+  .foot-contact .num{direction:ltr; font-variant-numeric:tabular-nums}
+  .social{display:flex; gap:10px; margin-top:20px}
+  .social a{width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,.25); display:flex; align-items:center; justify-content:center}
+  .social a:hover{background:var(--blue); border-color:var(--blue)}
+  .legal{border-top:1px solid rgba(255,255,255,.12); padding-block:20px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:13px}
+  .legal .links{display:flex; gap:22px; flex-wrap:wrap}
+  @media(max-width:900px){ .foot-grid{grid-template-columns:1fr 1fr} }
+  @media(max-width:560px){ .foot-grid{grid-template-columns:1fr} }
+</style>
+
+<div class="rtl">
+
+  <!-- ======= Top utility bar ======= -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="group">
+        <span><svg class="ico-inline" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg> <span class="num">0558333799</span> / <span class="num">0558333599</span></span>
+        <span><svg class="ico-inline" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> info@luxano.sa</span>
+      </div>
+      <div class="group">
+        <span>الرياض، حي الملقا</span>
+        <button class="lang" type="button">English</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Navigation ======= -->
+  <header class="nav">
+    <div class="wrap">
+      <a href="#" aria-label="مصاعد لوكسانو، الصفحة الرئيسية">
+        <img src="images/logo.png" alt="مصاعد لوكسانو" style="height:54px; width:auto; display:block">
+      </a>
+      <nav aria-label="القائمة الرئيسية">
+        <ul>
+          <li><a class="active" href="#">الرئيسية</a></li>
+          <li><a href="#products">منتجاتنا</a></li>
+          <li><a href="#services">خدماتنا</a></li>
+          <li><a href="#projects">مشاريعنا</a></li>
+          <li><a href="#gallery">المعرض</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </nav>
+      <button class="btn open-quote" type="button">اطلب عرض سعر</button>
+    </div>
+  </header>
+
+  <!-- ======= Hero ======= -->
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">شركة سعودية لتوريد وتركيب وصيانة المصاعد</span>
+      <h1>حيث ترتقي الجودة وتبدأ الثقة</h1>
+      <p class="lead">نقدم حلول مصاعد متكاملة تشمل التوريد والتركيب والصيانة والتحديث للمباني السكنية والتجارية في جميع مناطق المملكة، بفريق فني محترف متواجد على مدار الساعة.</p>
+      <div class="ctas">
+        <button class="btn open-quote" type="button">اطلب عرض سعر</button>
+        <a class="btn ghost" href="#products">استكشف منتجاتنا</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Stats band ======= -->
+  <div class="stats" role="region" aria-label="أرقامنا">
+    <div class="wrap">
+      <div class="stat"><div class="n" data-count="15" data-prefix="+">+15</div><div class="l">سنة خبرة</div></div>
+      <div class="stat"><div class="n" data-count="500" data-prefix="+">+500</div><div class="l">مصعد مركّب</div></div>
+      <div class="stat"><div class="n" data-count="300" data-prefix="+">+300</div><div class="l">عقد صيانة نشط</div></div>
+      <div class="stat"><div class="n" data-count="24" data-suffix="/7">24/7</div><div class="l">دعم فني وطوارئ</div></div>
+    </div>
+  </div>
+
+  <!-- ======= Intro statement ======= -->
+  <section class="intro" id="about">
+    <div class="wrap grid">
+      <div>
+        <div class="kicker">من نحن</div>
+        <h2>شركة سعودية متخصصة في حلول المصاعد الحديثة</h2>
+        <p>نعمل على تقديم خدمات متكاملة تشمل التوريد والتركيب والصيانة وفق المعايير العالمية. نؤمن بأن المصعد عنصر أساسي في جودة المبنى، فنركز على الأداء العالي والموثوقية في جميع مشاريعنا. هدفنا بناء علاقات طويلة الأمد مع عملائنا قائمة على الثقة والجودة، وندعم رؤية المملكة 2030 بحلول ذكية وموفرة للطاقة تواكب التطور العمراني.</p>
+        <a class="link-arrow" href="#">المزيد عنا ←</a>
+      </div>
+      <div>
+        <div class="cert-row">
+          <span class="cert">داعمون لرؤية المملكة 2030</span>
+          <span class="cert">معايير السلامة العالمية</span>
+          <span class="cert">الرقم الموحد 7050928493</span>
+          <span class="cert">ضمان وقطع غيار أصلية</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Vision, Mission & Values ======= -->
+  <section id="vision">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">رؤيتنا ورسالتنا</div>
+        <h2>نطمح أن نكون الخيار الأول في المملكة</h2>
+      </div>
+      <div class="vm-grid">
+        <div class="vm-card">
+          <h3>رؤيتنا</h3>
+          <p>أن تكون لوكسانو الخيار الأول في مجال حلول المصاعد في المملكة، من خلال الابتكار المستمر وتقديم أعلى مستويات الجودة والكفاءة. نسعى لإحداث نقلة نوعية في تجربة التنقل داخل المباني عبر حلول ذكية ومستدامة.</p>
+        </div>
+        <div class="vm-card">
+          <h3>رسالتنا</h3>
+          <p>تقديم حلول مصاعد متكاملة تلبي احتياجات عملائنا بدقة واحترافية، مع الالتزام بأعلى معايير السلامة والجودة. نعتمد على فريق مؤهل وتقنيات حديثة لضمان أفضل النتائج، ونسعى دائمًا لتجاوز توقعات عملائنا في كل مشروع.</p>
+        </div>
+      </div>
+      <div class="values-row">
+        <div class="value-item"><div class="vi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-3 8-10V5l-8-3-8 3v7c0 7 8 10 8 10Z"/></svg></div><b>السلامة</b><span>سلامة العاملين والموقع أولوية لا تساوم</span></div>
+        <div class="value-item"><div class="vi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></div><b>الجودة</b><span>أعلى معايير الجودة في كل مشروع</span></div>
+        <div class="value-item"><div class="vi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2Z"/></svg></div><b>الابتكار</b><span>حلول مبتكرة تدعم الكفاءة والاستدامة</span></div>
+        <div class="value-item"><div class="vi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1Z"/></svg></div><b>التميز</b><span>الأفضل في كل تفاصيل العمل</span></div>
+        <div class="value-item"><div class="vi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg></div><b>المصداقية</b><span>الثقة تبنى على الصدق والشفافية</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Services cards ======= -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">خدماتنا</div>
+        <h2>كل خدمات المصعد عند جهة واحدة</h2>
+        <p>ست خدمات متكاملة تغطي دورة حياة المصعد بالكامل، من التوريد إلى الفحص والاعتماد.</p>
+      </div>
+      <div class="cards six">
+        <div class="card">
+          <div class="visual photo"><img src="images/srv-install.jpg" alt="فنيو لوكسانو أثناء تركيب مصعد"></div>
+          <div class="body">
+            <h3>توريد وتركيب المصاعد</h3>
+            <p>نورد ونركب المصاعد بأعلى جودة وفق أحدث المعايير العالمية، مع ضمان توافق الأنظمة مع متطلبات المباني المختلفة.</p>
+            <a class="link-arrow" href="#">التفاصيل ←</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="images/srv-maint.jpg" alt="صيانة وقائية لمصعد"></div>
+          <div class="body">
+            <h3>الصيانة الوقائية والطوارئ</h3>
+            <p>برامج صيانة دورية تضمن استمرارية عمل المصاعد بكفاءة، وفريق جاهز للاستجابة السريعة للحالات الطارئة.</p>
+            <a class="link-arrow" href="#">التفاصيل ←</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="images/srv-modern.jpg" alt="تحديث وتطوير مصعد قائم"></div>
+          <div class="body">
+            <h3>تحديث وتطوير المصاعد</h3>
+            <p>حلول تطوير حديثة تحسّن أداء المصاعد القديمة وترفع الكفاءة والسلامة، وتمنح أنظمتك عمرًا أطول.</p>
+            <a class="link-arrow" href="#">التفاصيل ←</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="images/srv-contract.jpg" alt="عقود الصيانة السنوية"></div>
+          <div class="body">
+            <h3>عقود الصيانة السنوية</h3>
+            <p>عقود شاملة تضمن متابعة مستمرة لأنظمة المصاعد، مع فحص دوري وخدمة سريعة عند الحاجة.</p>
+            <a class="link-arrow" href="#">التفاصيل ←</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="images/srv-consult.jpg" alt="استشارات فنية لاختيار المصعد المناسب"></div>
+          <div class="body">
+            <h3>الاستشارات الفنية والدعم</h3>
+            <p>استشارات متخصصة تساعدك في اختيار الحل المناسب، بتحليل دقيق لاحتياجات مشروعك وأفضل التوصيات.</p>
+            <a class="link-arrow" href="#">التفاصيل ←</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="images/srv-inspect.jpg" alt="فحص فني واعتماد للمصاعد"></div>
+          <div class="body">
+            <h3>الفحص الفني والاعتماد</h3>
+            <p>فحص شامل يتأكد من مطابقة مصعدك لمعايير السلامة، مع تقارير دقيقة وشهادات اعتماد للتشغيل الآمن.</p>
+            <a class="link-arrow" href="#">التفاصيل ←</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Products ======= -->
+  <section class="projects" id="products">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">منتجاتنا</div>
+        <h2>سبعة أنواع تغطي كل الاحتياجات</h2>
+        <p>متوفرة بنظام غرفة الماكينة (MR) أو بدون غرفة (MRL)، وبكبائن نحاسية وذهبية وفضية وستانلس ستيل.</p>
+      </div>
+      <div class="cards seven">
+        <div class="card">
+          <div class="visual photo"><img src="images/img_2607.jpg" alt="كبينة مصعد ركاب ستانلس مع أرضية رخام أسود من تنفيذ لوكسانو"></div>
+          <div class="body"><h3>مصاعد الركاب</h3><p>للمباني السكنية والتجارية بسعات وسرعات مختلفة.</p><a class="link-arrow" href="#">التفاصيل ←</a></div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="images/cabin9.jpg" alt="كبينة ستانلس ستيل بمسكات يد"></div>
+          <div class="body"><h3>مصاعد ذوي الاحتياجات الخاصة</h3><p>أبواب واسعة ومسكات وأزرار بمستوى منخفض لسهولة الاستخدام.</p><a class="link-arrow" href="#">التفاصيل ←</a></div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="images/img_2603.jpg" alt="مصعد بانوراما زجاجي بتشطيب ذهبي في معرض لوكسانو"></div>
+          <div class="body"><h3>مصاعد بانوراما زجاج مع الاستيل</h3><p>كبائن زجاجية مع ستانلس تعطي المبنى واجهة مميزة.</p><a class="link-arrow" href="#">التفاصيل ←</a></div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=70" alt="مستودع صناعي"></div>
+          <div class="body"><h3>مصاعد البضائع</h3><p>حمولات عالية للمصانع والمستودعات والمولات.</p><a class="link-arrow" href="#">التفاصيل ←</a></div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="https://images.unsplash.com/photo-1588416820614-f8d6ac6cea56?auto=format&fit=crop&w=800&q=70" alt="مطبخ مطعم"></div>
+          <div class="body"><h3>مصاعد الطعام</h3><p>للمطاعم والفنادق، نقل سريع ونظيف بين الأدوار.</p><a class="link-arrow" href="#">التفاصيل ←</a></div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="images/cabin2.jpg" alt="كبينة فضية بتشطيب ستانلس لامع"></div>
+          <div class="body"><h3>مصاعد فوجي الباكج</h3><p>باقات FUJI متكاملة بجودة يابانية وسعر منافس.</p><a class="link-arrow" href="#">التفاصيل ←</a></div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="images/cabin7.jpg" alt="كبينة ذهبية فاخرة"></div>
+          <div class="body"><h3>مصاعد المستشفيات والمولات</h3><p>كبائن واسعة لنقل الأسرّة والأحمال مع حركة سلسة.</p><a class="link-arrow" href="#">التفاصيل ←</a></div>
+        </div>
+        <div class="card">
+          <div class="visual photo"><img src="images/img_2610.jpg" alt="كبينة مصعد منزلي بتشطيب خشبي وإضاءة دافئة من تنفيذ لوكسانو"></div>
+          <div class="body"><h3>مصاعد الفلل والمنازل</h3><p>مقاسات مدمجة وتشغيل هادئ يناسب المساكن الخاصة.</p><a class="link-arrow" href="#">التفاصيل ←</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Why Luxano ======= -->
+  <section class="why">
+    <div class="wrap grid">
+      <div>
+        <div class="kicker">لماذا لوكسانو؟</div>
+        <div class="sec-head" style="margin-bottom:0">
+          <h2>ما يميزنا في كل مشروع</h2>
+        </div>
+        <ul class="tick-list">
+          <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 6 6L20 6"/></svg></span><div><b>معايير سلامة عالمية</b><span>التزام كامل بمواصفات EN 81 الأوروبية في كل تركيب.</span></div></li>
+          <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 6 6L20 6"/></svg></span><div><b>فريق هندسي معتمد</b><span>مهندسون وفنيون مدربون على أحدث تقنيات المصاعد.</span></div></li>
+          <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 6 6L20 6"/></svg></span><div><b>استجابة طوارئ 24/7</b><span>خط ساخن وفرق ميدانية تصل بسرعة في أي وقت.</span></div></li>
+          <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 6 6L20 6"/></svg></span><div><b>ضمان وقطع غيار أصلية</b><span>ضمان يصل إلى 5 سنوات مع قطع غيار أصلية معتمدة.</span></div></li>
+        </ul>
+      </div>
+      <div class="why-visual">
+        <img src="images/img_2608.jpg" alt="كبينة مصعد فاخرة بأعمدة حجرية مضيئة من تنفيذ لوكسانو" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover">
+        <div class="quote">"ركّبنا مصعدين بانوراما مع لوكسانو، التزموا بالموعد والتنفيذ طلع نظيف." <b>مالك مجمع تجاري، الرياض</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Gallery ======= -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">معرض أعمالنا</div>
+        <h2>صور من كبائننا وتشطيباتنا</h2>
+        <p>اضغط على أي صورة لتكبيرها. تشطيبات ستانلس بألوان متعددة مع خيارات الرخام والخشب والزجاج والإضاءة المخفية.</p>
+      </div>
+      <div class="gallery">
+        <button class="g-item" type="button"><img src="images/img_2603.jpg" alt="مصعد بانوراما زجاجي بتشطيب ذهبي في معرض لوكسانو"><span class="g-cap">مصعد بانوراما زجاجي بتشطيب ذهبي في معرض لوكسانو</span></button>
+        <button class="g-item" type="button"><img src="images/img_2607.jpg" alt="كبينة ستانلس مع أرضية رخام أسود"><span class="g-cap">كبينة ستانلس مع أرضية رخام أسود</span></button>
+        <button class="g-item" type="button"><img src="images/img_2608.jpg" alt="كبينة فاخرة بأعمدة حجرية مضيئة وأرضية رخام أبيض"><span class="g-cap">كبينة فاخرة بأعمدة حجرية مضيئة وأرضية رخام أبيض</span></button>
+        <button class="g-item" type="button"><img src="images/img_2609.jpg" alt="كبينة بلوحة زجاجية مضيئة بنقشة ريش"><span class="g-cap">كبينة بلوحة زجاجية مضيئة بنقشة ريش</span></button>
+        <button class="g-item" type="button"><img src="images/img_2610.jpg" alt="كبينة بتشطيب خشبي وإضاءة دافئة"><span class="g-cap">كبينة بتشطيب خشبي وإضاءة دافئة</span></button>
+        <button class="g-item" type="button"><img src="images/img_2612.jpg" alt="لوحة عينات التشطيبات: فضي وذهبي وأسود وبرونزي، لامع ومطفي"><span class="g-cap">لوحة عينات التشطيبات: فضي وذهبي وأسود وبرونزي، لامع ومطفي</span></button>
+        <button class="g-item" type="button"><img src="images/cabin1.jpg" alt="كبينة CR-1 بتشطيب خشبي ونحاسي"><span class="g-cap">كبينة CR-1 بتشطيب خشبي ونحاسي</span></button>
+        <button class="g-item" type="button"><img src="images/cabin3.jpg" alt="كبينة CR-3 بتشطيب خشبي فاخر"><span class="g-cap">كبينة CR-3 بتشطيب خشبي فاخر</span></button>
+        <button class="g-item" type="button"><img src="images/cabin4.jpg" alt="كبينة CR-4 بتشطيب أسود مضيء"><span class="g-cap">كبينة CR-4 بتشطيب أسود مضيء</span></button>
+        <button class="g-item" type="button"><img src="images/cabin5.jpg" alt="كبينة CR-5 بتشطيب ذهبي منقوش"><span class="g-cap">كبينة CR-5 بتشطيب ذهبي منقوش</span></button>
+        <button class="g-item" type="button"><img src="images/cabin6.jpg" alt="كبينة CR-6 ذهبية"><span class="g-cap">كبينة CR-6 ذهبية</span></button>
+        <button class="g-item" type="button"><img src="images/cabin8.jpg" alt="كبينة CR-8 ذهبية بمرآة"><span class="g-cap">كبينة CR-8 ذهبية بمرآة</span></button>
+      </div>
+      <div class="finish-chips">
+        <span class="cert">كبائن نحاسية</span>
+        <span class="cert">كبائن ذهبية</span>
+        <span class="cert">كبائن فضية</span>
+        <span class="cert">كبائن ستانلس ستيل</span>
+        <span class="cert">فضي لامع / مطفي</span>
+        <span class="cert">ذهبي لامع / مطفي</span>
+        <span class="cert">أسود لامع / مطفي</span>
+        <span class="cert">برونزي لامع / مطفي</span>
+        <span class="cert">أبواب زجاج وستانلس</span>
+        <span class="cert">ديكورات أسقف وأرضيات</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Projects ======= -->
+  <section class="projects" id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">مشاريعنا</div>
+        <h2>من مشاريعنا المنفذة</h2>
+      </div>
+      <div class="proj-grid">
+        <div class="proj" style="background:linear-gradient(160deg,#27447F,#0B1430)">
+          <span class="tag">أبراج تجارية</span>
+          <div class="info"><h3>برج مكتبي على طريق الملك فهد</h3><p>6 مصاعد ركاب عالية السرعة، الرياض</p></div>
+        </div>
+        <div class="proj" style="background:linear-gradient(160deg,#4E86C6,#16265C)">
+          <span class="tag">مجمعات سكنية</span>
+          <div class="info"><h3>مجمع سكني في حي الملقا</h3><p>12 مصعد ركاب بأنظمة تحكم ذكية، الرياض</p></div>
+        </div>
+        <div class="proj" style="background:linear-gradient(160deg,#16265C,#4E86C6)">
+          <span class="tag">فنادق</span>
+          <div class="info"><h3>فندق خمس نجوم على الكورنيش</h3><p>مصاعد بانوراما ومصاعد خدمة، جدة</p></div>
+        </div>
+        <div class="proj" style="background:linear-gradient(160deg,#0B1430,#27447F)">
+          <span class="tag">فلل خاصة</span>
+          <div class="info"><h3>فيلا خاصة في حي النرجس</h3><p>مصعد منزلي مدمج، الرياض</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Key clients ======= -->
+  <section id="clients">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">أبرز العملاء</div>
+        <h2>عملاء وثقوا فينا</h2>
+      </div>
+      <div class="clients-grid">
+        <div class="client-logo"><img src="images/client1.png?v=2" alt="وزارة الحرس الوطني"></div>
+        <div class="client-logo"><img src="images/client5.png?v=2" alt="جامعة الملك سعود"></div>
+        <div class="client-logo"><img src="images/client3.png?v=2" alt="الحمدان للاستشارات الهندسية"></div>
+        <div class="client-logo"><img src="images/client4.png?v=2" alt="هدلق الإعمار للتطوير والاستثمار العقاري"></div>
+        <div class="client-logo"><img src="images/client7.png?v=2" alt="الخليل"></div>
+        <div class="client-logo"><img src="images/client6.png?v=2" alt="بيت الشاورما"></div>
+        <div class="client-logo"><img src="images/client2.png?v=2" alt="شعار عميل"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CTA banner ======= -->
+  <div class="cta-banner">
+    <div class="wrap">
+      <div>
+        <h2>عندك مشروع يحتاج مصعد؟</h2>
+        <p>اتصل بنا أو اطلب زيارة مهندس، ونرسل لك عرض السعر خلال 24 ساعة: <span class="num">0558333799</span></p>
+      </div>
+      <button class="btn open-quote" style="background:#fff; color:#16265C" type="button">اطلب عرض سعر الآن</button>
+    </div>
+  </div>
+
+  <!-- ======= Contact + Map ======= -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">تواصل معنا</div>
+        <h2>زورنا في مقرنا بالرياض</h2>
+        <p>مقر الشركة في حي الملقا، شارع الأمير محمد بن سعد. أبوابنا مفتوحة من الأحد إلى الخميس.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <ul>
+            <li><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>العنوان</b>الرياض، حي الملقا، شارع الأمير محمد بن سعد</div></li>
+            <li><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><div><b>المبيعات</b><span class="num">0558333799</span></div></li>
+            <li><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><div><b>الإدارة</b><span class="num">0558333599</span></div></li>
+            <li><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><div><b>البريد الإلكتروني</b>info@luxano.sa</div></li>
+            <li><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg><div><b>الموقع</b>www.luxano.sa</div></li>
+            <li><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><b>ساعات العمل</b>الأحد إلى الخميس، من 9 صباحًا إلى 6 مساءً</div></li>
+          </ul>
+          <a class="btn" href="https://maps.app.goo.gl/qRE2GgiFiTgUNCQHA" target="_blank" rel="noopener">افتح الموقع في خرائط جوجل</a>
+          <a class="link-arrow" href="https://maps.app.goo.gl/qRE2GgiFiTgUNCQHA" target="_blank" rel="noopener" style="align-self:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1Z"/></svg> شاركنا تقييمك على جوجل</a>
+        </div>
+        <iframe class="map-frame" title="موقع شركة لوكسانو إلفيترس على الخريطة"
+          src="https://maps.google.com/maps?q=24.8169807,46.5976156&hl=ar&z=16&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="images/logo-footer.png" alt="مصاعد لوكسانو" style="height:62px; width:auto; display:block">
+          <p style="margin-top:18px; max-width:34ch">شركة سعودية مقرها الرياض، متخصصة في توريد وتركيب وصيانة وتحديث المصاعد.</p>
+          <div class="social">
+            <a href="#" aria-label="لينكدإن"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a>
+            <a href="#" aria-label="إنستغرام"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="إكس"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.3l-4.9-6.4L6.2 22H3l7.3-8.3L1 2h6.4l4.4 5.9Zm-1.1 18h1.7L7.1 3.8H5.3Z"/></svg></a>
+            <a href="#" aria-label="واتساب"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5 13.5c-.2.7-1.3 1.3-1.8 1.3-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .1 0 .7-.2 1.3Z"/></svg></a>
+            <a href="https://www.tiktok.com/@luxanoelevators" target="_blank" rel="noopener" aria-label="تيك توك"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="#about">من نحن</a></li>
+            <li><a href="#products">منتجاتنا</a></li>
+            <li><a href="#services">خدماتنا</a></li>
+            <li><a href="#projects">مشاريعنا</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>خدماتنا</h4>
+          <ul>
+            <li><a href="#services">توريد وتركيب المصاعد</a></li>
+            <li><a href="#services">الصيانة الوقائية والطوارئ</a></li>
+            <li><a href="#services">تحديث وتطوير المصاعد</a></li>
+            <li><a href="#services">عقود الصيانة السنوية</a></li>
+            <li><a href="#services">الاستشارات الفنية والدعم</a></li>
+            <li><a href="#services">الفحص الفني والاعتماد</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>تواصل معنا</h4>
+          <ul class="foot-contact">
+            <li><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue-soft)" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>الرياض، حي الملقا، شارع الأمير محمد بن سعد</li>
+            <li><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue-soft)" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>المبيعات: <span class="num">0558333799</span></li>
+            <li><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue-soft)" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>الإدارة: <span class="num">0558333599</span></li>
+            <li><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue-soft)" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>info@luxano.sa</li>
+            <li><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue-soft)" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg>www.luxano.sa</li>
+            <li><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue-soft)" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg>الرقم الموحد: <span class="num">7050928493</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="legal">
+        <span>جميع الحقوق محفوظة لشركة لوكسانو إلفيترس © 2026</span>
+        <div class="links">
+          <a href="#">سياسة الخصوصية</a>
+          <a href="#">الشروط والأحكام</a>
+          <a href="#">خريطة الموقع</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======= Ask Sano assistant ======= -->
+  <button class="sano-fab" id="sanoFab" type="button" aria-label="افتح المساعد الافتراضي اسأل سانو">
+    <span class="sano-label">اسأل سانو</span>
+    <img src="images/sano.png" alt="">
+  </button>
+  <div class="sano-panel" id="sanoPanel" role="dialog" aria-label="اسأل سانو، المساعد الافتراضي">
+    <div class="sano-head">
+      <img src="images/sano.png" alt="">
+      <div>
+        <b>اسأل سانو</b>
+        <span>مساعد لوكسانو الافتراضي • متصل</span>
+      </div>
+      <button class="sano-close" type="button" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="sano-body" id="sanoBody">
+      <div class="sano-msg bot">أهلًا! أنا سانو، مساعد لوكسانو.<br>اسألني عن أي حاجة تخص المصاعد، أو اختر سؤال من تحت.</div>
+    </div>
+    <div class="sano-quick">
+      <button class="sano-q" data-q="كم سعر المصعد؟" data-a="السعر يعتمد على نوع المصعد وعدد الوقفات والتشطيب. اطلب عرض سعر ونرد عليك خلال 24 ساعة، أو كلم المبيعات مباشرة: 0558333799">كم سعر المصعد؟</button>
+      <button class="sano-q" data-q="وش أنواع المصاعد عندكم؟" data-a="عندنا 7 أنواع: ركاب، ذوي الاحتياجات الخاصة، بانوراما زجاج، بضائع، طعام، فوجي باكج، ومستشفيات ومولات. وكلها متوفرة بغرفة ماكينة أو بدون.">أنواع المصاعد؟</button>
+      <button class="sano-q" data-q="عندكم عقود صيانة؟" data-a="نعم، عندنا عقود صيانة سنوية بزيارات دورية مجدولة وفريق طوارئ متاح 24/7. تواصل مع المبيعات: 0558333799">عقود الصيانة؟</button>
+      <button class="sano-q" data-q="وين مقركم؟" data-a="مقرنا في الرياض، حي الملقا، شارع الأمير محمد بن سعد. تلقانا على خرائط جوجل، وأبوابنا مفتوحة من الأحد للخميس، 9 صباحًا إلى 6 مساءً.">وين مقركم؟</button>
+      <button class="sano-q" data-q="أبغى عرض سعر" data-a="ممتاز! بفتح لك نموذج الطلب الآن، عبّي بياناتك ونتواصل معك خلال 24 ساعة." data-action="quote">أبغى عرض سعر</button>
+    </div>
+  </div>
+
+  <!-- ======= Quote modal ======= -->
+  <div class="modal" id="quoteModal" role="dialog" aria-modal="true" aria-label="طلب عرض سعر">
+    <div class="modal-card">
+      <div class="modal-head">
+        <button class="modal-close" type="button" aria-label="إغلاق">✕</button>
+        <h3>اطلب عرض سعر</h3>
+        <p>عبّي البيانات ونتواصل معك خلال 24 ساعة بعرض السعر</p>
+      </div>
+      <form id="quoteForm" novalidate>
+        <div class="field">
+          <label for="qName">الاسم <span>*</span></label>
+          <input id="qName" name="name" type="text" required autocomplete="name" placeholder="اسمك الكامل">
+        </div>
+        <div class="field">
+          <label for="qPhone">رقم الجوال <span>*</span></label>
+          <input id="qPhone" name="phone" type="tel" required autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" style="text-align:end">
+        </div>
+        <div class="field">
+          <label for="qCity">المدينة</label>
+          <input id="qCity" name="city" type="text" placeholder="الرياض">
+        </div>
+        <div class="field">
+          <label for="qType">نوع المصعد</label>
+          <select id="qType" name="type">
+            <option>مصعد ركاب</option>
+            <option>مصعد بانوراما</option>
+            <option>مصعد بضائع</option>
+            <option>مصعد طعام</option>
+            <option>مصعد فيلا / منزل</option>
+            <option>غير متأكد</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="qService">نوع الطلب</label>
+          <select id="qService" name="service">
+            <option>تركيب جديد</option>
+            <option>عقد صيانة</option>
+            <option>تحديث مصعد قائم</option>
+            <option>قطع غيار</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="qStops">عدد الوقفات</label>
+          <input id="qStops" name="stops" type="number" min="2" max="30" placeholder="مثال: 4">
+        </div>
+        <div class="field full">
+          <label for="qNotes">ملاحظات</label>
+          <textarea id="qNotes" name="notes" placeholder="أي تفاصيل إضافية عن مشروعك"></textarea>
+        </div>
+        <button class="btn" type="submit">أرسل الطلب</button>
+        <div class="modal-note">بياناتك تستخدم للتواصل معك بخصوص طلبك فقط</div>
+      </form>
+      <div class="modal-success">
+        <div class="ok"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 6 6L20 6"/></svg></div>
+        <h3>وصلنا طلبك</h3>
+        <p>شكرًا لك، فريقنا حيتواصل معك خلال 24 ساعة على رقم جوالك.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Lightbox ======= -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="عرض الصورة بالحجم الكامل">
+    <button class="lb-btn lb-close" type="button" aria-label="إغلاق">✕</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="الصورة السابقة">‹</button>
+    <img src="" alt="">
+    <div class="cap"></div>
+    <button class="lb-btn lb-next" type="button" aria-label="الصورة التالية">›</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var items = Array.prototype.slice.call(document.querySelectorAll('.g-item img'));
+  var lb = document.getElementById('lightbox');
+  var lbImg = lb.querySelector('img');
+  var lbCap = lb.querySelector('.cap');
+  var current = 0;
+
+  function show(i){
+    current = (i + items.length) % items.length;
+    lbImg.src = items[current].src;
+    lbImg.alt = items[current].alt;
+    lbCap.textContent = items[current].alt;
+  }
+  function open(i){ show(i); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+
+  items.forEach(function(img, i){
+    img.parentElement.addEventListener('click', function(){ open(i); });
+  });
+  lb.querySelector('.lb-close').addEventListener('click', close);
+  lb.querySelector('.lb-prev').addEventListener('click', function(e){ e.stopPropagation(); show(current-1); });
+  lb.querySelector('.lb-next').addEventListener('click', function(e){ e.stopPropagation(); show(current+1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowRight') show(current-1);
+    if(e.key === 'ArrowLeft') show(current+1);
+  });
+})();
+
+(function(){
+  var modal = document.getElementById('quoteModal');
+  var form = document.getElementById('quoteForm');
+  var openers = document.querySelectorAll('.open-quote');
+
+  function open(){ modal.classList.remove('done'); form.reset(); modal.classList.add('open'); document.body.style.overflow='hidden'; document.getElementById('qName').focus(); }
+  function close(){ modal.classList.remove('open'); document.body.style.overflow=''; }
+
+  openers.forEach(function(b){ b.addEventListener('click', open); });
+  modal.querySelector('.modal-close').addEventListener('click', close);
+  modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('open')) close(); });
+
+  window.openQuoteModal = open;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('qName');
+    var phone = document.getElementById('qPhone');
+    if(!name.value.trim()){ name.focus(); name.style.borderColor='#C0392B'; return; }
+    name.style.borderColor='';
+    if(!/^0?5\d{8}$/.test(phone.value.replace(/[\s-]/g,''))){ phone.focus(); phone.style.borderColor='#C0392B'; return; }
+    phone.style.borderColor='';
+    modal.classList.add('done');
+  });
+})();
+
+(function(){
+  var nums = document.querySelectorAll('.stat .n[data-count]');
+  if(!nums.length) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animate(el){
+    var target = parseInt(el.dataset.count, 10);
+    var prefix = el.dataset.prefix || '';
+    var suffix = el.dataset.suffix || '';
+    if(reduced){ el.textContent = prefix + target + suffix; return; }
+    var duration = 1600;
+    var start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(target * eased) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var seen = new WeakSet();
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting && !seen.has(e.target)){
+        seen.add(e.target);
+        animate(e.target);
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold: .4});
+  nums.forEach(function(n){ obs.observe(n); });
+})();
+
+(function(){
+  var fab = document.getElementById('sanoFab');
+  var panel = document.getElementById('sanoPanel');
+  var body = document.getElementById('sanoBody');
+
+  fab.addEventListener('click', function(){ panel.classList.toggle('open'); });
+  panel.querySelector('.sano-close').addEventListener('click', function(){ panel.classList.remove('open'); });
+
+  function addMsg(text, who){
+    var d = document.createElement('div');
+    d.className = 'sano-msg ' + who;
+    d.textContent = text;
+    body.appendChild(d);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  panel.querySelectorAll('.sano-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      addMsg(btn.dataset.q, 'user');
+      setTimeout(function(){
+        addMsg(btn.dataset.a, 'bot');
+        if(btn.dataset.action === 'quote'){
+          setTimeout(function(){ panel.classList.remove('open'); window.openQuoteModal(); }, 900);
+        }
+      }, 450);
+    });
+  });
+})();
+</script>
