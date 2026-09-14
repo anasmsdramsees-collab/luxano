@@ -351,7 +351,8 @@
   /* ---------- National Day promo ---------- */
   .promo{position:fixed; inset:0; z-index:120; background:rgba(3,10,8,.85); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); display:none; align-items:center; justify-content:center; padding:18px}
   .promo.open{display:flex}
-  .promo-card{position:relative; width:min(1120px,100%); border-radius:16px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.65)}
+  .promo-wrap{display:flex; flex-direction:column; align-items:center; width:min(1000px,100%); margin-inline:auto}
+  .promo-card{position:relative; width:100%; border-radius:16px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.65)}
   .promo-img{display:block; width:100%; height:auto}
 
   /* زر الطلب — زر حقيقي فوق التصميم */
@@ -848,7 +849,7 @@
 
   <!-- ======= National Day promo ======= -->
   <div class="promo" id="promo" role="dialog" aria-modal="true" aria-label="عروض اليوم الوطني">
-    <div>
+    <div class="promo-wrap">
       <div class="promo-card">
         <img class="promo-img" src="images/promo-national-day.jpg"
              alt="عروض اليوم الوطني من مصاعد لوكسانو: خصم 96 ريال على كل 1000 ريال مشتريات، من 15 إلى 25 سبتمبر 2026">
