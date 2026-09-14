@@ -346,6 +346,32 @@
   .map-frame{border:0; width:100%; height:100%; min-height:400px; border-radius:10px; box-shadow:var(--shadow)}
   @media(max-width:860px){ .contact-grid{grid-template-columns:1fr} .map-frame{min-height:320px} }
 
+
+  /* ---------- National Day promo ---------- */
+  .promo{position:fixed; inset:0; z-index:120; background:rgba(3,10,8,.85); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); display:none; align-items:center; justify-content:center; padding:18px}
+  .promo.open{display:flex}
+  .promo-card{position:relative; width:min(1000px,100%); border-radius:16px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.65)}
+  .promo-img{display:block; width:100%; height:auto}
+  /* أزرار شفافة فوق التصميم (نِسَب مئوية عشان تفضل مظبوطة على أي مقاس) */
+  .hot{position:absolute; background:none; border:none; cursor:pointer; padding:0; border-radius:99px}
+  .hot:focus-visible{outline:3px solid #3BE07E; outline-offset:2px}
+  .hot-close{left:1.4%; top:2%; width:6.2%; height:9.2%; border-radius:50%}
+  .hot-cta{left:57.5%; top:72.8%; width:33.6%; height:8.2%}
+  .hot-cta:hover{background:rgba(255,255,255,.12)}
+  .hot-skip{left:66%; top:82.4%; width:14.5%; height:4.6%}
+  .hot-skip:hover{background:rgba(255,255,255,.1)}
+  /* شريط العد التنازلي فوق الشريط المرسوم */
+  .promo-bar{position:absolute; left:22.4%; width:55.8%; top:95.8%; height:1.2%; border-radius:99px; overflow:hidden; background:rgba(255,255,255,.14)}
+  .promo-bar span{display:block; height:100%; width:100%; background:linear-gradient(to left,#3BE07E,#14A85A); transform-origin:right center}
+  /* زر واضح للموبايل بدل الضغط على مساحة صغيرة */
+  .promo-mcta{display:none; width:100%; margin-top:10px; background:linear-gradient(180deg,#3BE07E,#14A85A); color:#04150E;
+    font-family:inherit; font-weight:800; font-size:17px; border:none; border-radius:99px; padding:14px; cursor:pointer}
+  @media(max-width:640px){
+    .promo-mcta{display:block}
+    .hot-cta,.hot-skip{display:none}
+    .hot-close{width:9%; height:13%}
+  }
+
   /* footer */
   footer{background:var(--navy-deep); color:#B9C6DC; font-size:14.5px}
   .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1.2fr; gap:40px; padding-block:64px 48px}
@@ -529,14 +555,10 @@
     <div class="wrap">
       <div class="sec-head">
         <div class="kicker">منتجاتنا</div>
-        <h2>سبعة أنواع تغطي كل الاحتياجات</h2>
+        <h2>ستة أنواع تغطي كل الاحتياجات</h2>
         <p>متوفرة بنظام غرفة الماكينة (MR) أو بدون غرفة (MRL)، وبكبائن نحاسية وذهبية وفضية وستانلس ستيل.</p>
       </div>
       <div class="cards seven">
-        <div class="card">
-          <div class="visual photo"><img src="images/cabin9.jpg" alt="كبينة ستانلس ستيل بمسكات يد"></div>
-          <div class="body"><h3>مصاعد ذوي الاحتياجات الخاصة</h3><p>أبواب واسعة ومسكات وأزرار بمستوى منخفض لسهولة الاستخدام.</p></div>
-        </div>
         <div class="card">
           <div class="visual photo"><img src="images/img_2603.jpg" alt="مصعد بانوراما زجاجي بتشطيب ذهبي في معرض لوكسانو"></div>
           <div class="body"><h3>مصاعد بانوراما زجاج مع الاستيل</h3><p>كبائن زجاجية مع ستانلس تعطي المبنى واجهة مميزة.</p></div>
@@ -794,6 +816,22 @@
     </div>
   </div>
 
+
+  <!-- ======= National Day promo ======= -->
+  <div class="promo" id="promo" role="dialog" aria-modal="true" aria-label="عروض اليوم الوطني">
+    <div>
+      <div class="promo-card">
+        <img class="promo-img" src="images/promo-national-day.jpg"
+             alt="عروض اليوم الوطني من مصاعد لوكسانو: خصم 96 ريال على كل 1000 ريال مشتريات، من 15 إلى 25 سبتمبر 2026">
+        <button class="hot hot-close" id="promoClose" type="button" aria-label="إغلاق العرض"></button>
+        <button class="hot hot-cta"   id="promoCta"   type="button" aria-label="طلب عرض سعر"></button>
+        <button class="hot hot-skip"  id="promoSkip"  type="button" aria-label="متابعة التصفح"></button>
+        <span class="promo-bar"><span id="promoBar"></span></span>
+      </div>
+      <button class="promo-mcta" id="promoCtaM" type="button">طلب عرض سعر ←</button>
+    </div>
+  </div>
+
   <!-- ======= Quote modal ======= -->
   <div class="modal" id="quoteModal" role="dialog" aria-modal="true" aria-label="طلب عرض سعر">
     <div class="modal-card">
@@ -1001,5 +1039,52 @@
       }, 450);
     });
   });
+})();
+(function(){
+  var promo = document.getElementById('promo');
+  if(!promo) return;
+
+  // العرض ساري من 15 لـ 25 سبتمبر 2026 — بعدها ما يظهرش
+  var END = new Date('2026-09-25T23:59:59+03:00');
+  if(new Date() > END) return;
+
+  // يظهر مرة واحدة في الجلسة
+  try { if(sessionStorage.getItem('luxanoPromoSeen')) return; } catch(e){}
+
+  var bar = document.getElementById('promoBar');
+  var TOTAL = 30, left = TOTAL, timer = null;
+
+  function close(){
+    promo.classList.remove('open');
+    document.body.style.overflow = '';
+    if(timer) clearInterval(timer);
+    try { sessionStorage.setItem('luxanoPromoSeen','1'); } catch(e){}
+  }
+
+  function open(){
+    promo.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if(bar){ bar.style.transition = 'transform ' + TOTAL + 's linear'; }
+    requestAnimationFrame(function(){ if(bar) bar.style.transform = 'scaleX(0)'; });
+    timer = setInterval(function(){
+      left--;
+      if(left <= 0) close();
+    }, 1000);
+  }
+
+  document.getElementById('promoClose').addEventListener('click', close);
+  document.getElementById('promoSkip').addEventListener('click', close);
+  function goQuote(){
+    close();
+    if(window.openQuoteModal) window.openQuoteModal();
+  }
+  document.getElementById('promoCta').addEventListener('click', goQuote);
+  document.getElementById('promoCtaM').addEventListener('click', goQuote);
+  promo.addEventListener('click', function(e){ if(e.target === promo) close(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && promo.classList.contains('open')) close();
+  });
+
+  setTimeout(open, 900);
 })();
 </script>
