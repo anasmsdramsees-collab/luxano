@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://luxano.co/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://luxano.co/images/og-cover.jpg</image:loc></image:image>
+    <image:image><image:loc>https://luxano.co/images/srv-install.jpg</image:loc></image:image>
+    <image:image><image:loc>https://luxano.co/images/srv-maint.jpg</image:loc></image:image>
+    <image:image><image:loc>https://luxano.co/images/srv-modern.jpg</image:loc></image:image>
+    <image:image><image:loc>https://luxano.co/images/cabin1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://luxano.co/images/cabin3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://luxano.co/images/img_2603.jpg</image:loc></image:image>
+    <image:image><image:loc>https://luxano.co/images/img_2608.jpg</image:loc></image:image>
+  </url>
+</urlset>
