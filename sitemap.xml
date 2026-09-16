@@ -15,4 +15,10 @@
     <image:image><image:loc>https://luxano.co/images/img_2603.jpg</image:loc></image:image>
     <image:image><image:loc>https://luxano.co/images/img_2608.jpg</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://luxano.co/privacy.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
